@@ -12,7 +12,7 @@ API> dotnet run --launch-profile "http"
 
 ## Docker
 
-You can run the app in a docker container too, see the [docker-compose](./docker-compose.yml).
+You can run the app in a docker container too, see the [docker-compose](./docker-compose.yml) file.
 
 ```yml
 # docker compose up -d --build
