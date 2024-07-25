@@ -1,0 +1,69 @@
+@API_HostAddress = http://localhost:7012/api/v1 
+
+### USERS
+GET {{API_HostAddress}}/users
+Accept: application/json
+
+###
+GET {{API_HostAddress}}/users/1
+Accept: application/json
+
+###
+GET {{API_HostAddress}}/users/1/todos
+Accept: application/json
+
+###
+GET {{API_HostAddress}}/users/1/posts
+Accept: application/json
+
+###
+GET {{API_HostAddress}}/users/1/albums
+Accept: application/json
+
+### TODOS
+GET {{API_HostAddress}}/todos
+Accept: application/json
+
+###
+GET {{API_HostAddress}}/todos/1
+Accept: application/json
+
+### POSTS
+GET {{API_HostAddress}}/posts
+Accept: application/json
+
+###
+GET {{API_HostAddress}}/posts/1
+Accept: application/json
+
+###
+GET {{API_HostAddress}}/posts/1/comments
+Accept: application/json
+
+### ALBUMS
+GET {{API_HostAddress}}/albums
+Accept: application/json
+
+###
+GET {{API_HostAddress}}/albums/1
+Accept: application/json
+
+###
+GET {{API_HostAddress}}/albums/1/photos
+Accept: application/json
+
+### PHOTOS
+GET {{API_HostAddress}}/photos
+Accept: application/json
+
+###
+GET {{API_HostAddress}}/photos/1
+Accept: application/json
+
+### COMMENTS
+GET {{API_HostAddress}}/comments
+Accept: application/json
+
+###
+GET {{API_HostAddress}}/comments/1
+Accept: application/json

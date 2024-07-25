@@ -1,0 +1,14 @@
+services:
+
+  # docker compose up -d --build
+  # docker ps --format "table {{.Names}}\t{{.State}}\t{{.RunningFor}}\t{{.Status}}"
+  # docker stats --format "table {{.Name}}\t{{.MemUsage}}\t{{.CPUPerc}}\t{{.PIDs}}"
+  # docker compose rm -s
+  jsonoplaceholder-api:
+    container_name: jsonoplaceholder-api
+    image: jsonoplaceholder-api:dev
+    build:
+      context: .
+      dockerfile: src/API/Dockerfile
+    ports:
+      - "7012:80"
