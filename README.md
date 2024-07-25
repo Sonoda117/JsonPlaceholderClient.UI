@@ -4,7 +4,7 @@ ASP.NET Core Web API that consumes the [JsonPlaceholder](https://jsonplaceholder
 
 ## API
 
-Run the app using the `http` profile so you can use the [API.http](./src/API/API.http) file to test the endpoints. This file uses the route `http://localhost:7012` as base, which is the same when [running the app in a container](#docker-compose).
+Run the app using the `http` profile so you can use the [API.http](./src/API/API.http) file to test the endpoints. This file uses the route `http://localhost:7012` as base, which is the same when [running the app in a container](#docker).
 
 ```powershell
 API> dotnet run --launch-profile "http"
@@ -12,7 +12,7 @@ API> dotnet run --launch-profile "http"
 
 ## Docker
 
-You can run the app in a docker container too, see the [docker-compose.yml](./docker-compose.yml) file.
+You can run the app in a docker container too, see the [docker-compose](./docker-compose.yml).
 
 ```yml
 # docker compose up -d --build
