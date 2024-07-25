@@ -1,6 +1,6 @@
 ﻿using JsonPlaceholderClient.Lib.Users;
 
-namespace JsonPlaceholderClient.Tests;
+namespace JsonPlaceholderClient.Tests.Services;
 
 public sealed class UserServiceTests
 {
@@ -11,7 +11,7 @@ public sealed class UserServiceTests
 
     [Fact]
     public async Task GetAll_ReturnsAllUsers()
-    { 
+    {
         var Users = await Service.GetAllAsync(CancellationToken.None);
 
         Assert.NotNull(Users);
@@ -75,7 +75,7 @@ public sealed class UserServiceTests
 
     [Fact]
     public async Task GetById_WhenIdDoesNotExist_ReturnsNull()
-    { 
+    {
         var User = await Service.GetByIdAsync(int.MaxValue, CancellationToken.None);
         Assert.Null(User);
     }

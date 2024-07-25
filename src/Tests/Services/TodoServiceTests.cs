@@ -1,6 +1,6 @@
 ﻿using JsonPlaceholderClient.Lib.Todos;
 
-namespace JsonPlaceholderClient.Tests;
+namespace JsonPlaceholderClient.Tests.Services;
 
 public class TodoServiceTests
 {

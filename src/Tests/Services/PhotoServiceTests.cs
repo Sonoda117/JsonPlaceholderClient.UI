@@ -1,6 +1,6 @@
 ﻿using JsonPlaceholderClient.Lib.Photos;
 
-namespace JsonPlaceholderClient.Tests;
+namespace JsonPlaceholderClient.Tests.Services;
 
 public sealed class PhotoServiceTests
 {

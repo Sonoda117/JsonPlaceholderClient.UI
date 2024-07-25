@@ -1,6 +1,6 @@
 ﻿using JsonPlaceholderClient.Lib.Posts;
 
-namespace JsonPlaceholderClient.Tests;
+namespace JsonPlaceholderClient.Tests.Services;
 
 public sealed class PostServiceTests
 {
@@ -31,7 +31,7 @@ public sealed class PostServiceTests
     [InlineData(2)]
     [InlineData(3)]
     public async Task GetById_WhenIdExists_ReturnsPost(int Id)
-    { 
+    {
         var Post = await Service.GetByIdAsync(Id, CancellationToken.None);
 
         Assert.NotNull(Post);

@@ -1,6 +1,6 @@
 ﻿using JsonPlaceholderClient.Lib.Comments;
 
-namespace JsonPlaceholderClient.Tests;
+namespace JsonPlaceholderClient.Tests.Services;
 
 public sealed class CommentServiceTests
 {

@@ -1,6 +1,6 @@
 ﻿using JsonPlaceholderClient.Lib.Albums;
 
-namespace JsonPlaceholderClient.Tests;
+namespace JsonPlaceholderClient.Tests.Services;
 
 public sealed class AlbumServiceTests
 {
