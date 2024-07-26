@@ -2,11 +2,11 @@
 
 namespace JsonPlaceholderClient.Tests.Services;
 
-public sealed class PostServiceTests
+public sealed class PostServiceTests(JsonPlaceholderFixture JsonPlaceholder) : IClassFixture<JsonPlaceholderFixture>
 {
     private readonly PostService Service = new(new()
     {
-        BaseAddress = new("https://jsonplaceholder.typicode.com/")
+        BaseAddress = new(JsonPlaceholder.Address)
     });
 
     [Fact]
