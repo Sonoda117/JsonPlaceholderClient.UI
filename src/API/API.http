@@ -1,6 +1,6 @@
 @API_HostAddress = http://localhost:7012/api/v1 
 
-### USERS
+# USERS
 GET {{API_HostAddress}}/users
 Accept: application/json
 
