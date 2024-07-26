@@ -16,6 +16,7 @@ public sealed class JsonPlaceholderFixture : IAsyncLifetime
         _Container = new ContainerBuilder()
             .WithImage(DockerImageName)
             .WithPortBinding(DockerContainerPort, true)
+            .WithWaitStrategy(Wait.ForUnixContainer().UntilPortIsAvailable(DockerContainerPort))
             .Build();
     }
 
