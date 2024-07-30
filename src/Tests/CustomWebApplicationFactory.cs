@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.DependencyInjection;
 using NSubstitute;
 
-namespace JsonPlaceholderClient.Tests.Endpoints;
+namespace JsonPlaceholderClient.Tests;
 
 public sealed class CustomWebApplicationFactory<TProgram> : WebApplicationFactory<TProgram>
     where TProgram : class
