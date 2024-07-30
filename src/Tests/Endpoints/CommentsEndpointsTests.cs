@@ -3,11 +3,11 @@ using System.Net;
 
 namespace JsonPlaceholderClient.Tests.Endpoints;
 
-public sealed class CommentsEndpointsTests : IClassFixture<CustomWebApplicationFactory<AssemblyEntryPoint>>
+public sealed class CommentsEndpointsTests : IClassFixture<CustomWebApplicationFactory<APIEntryPoint>>
 {
     private readonly HttpClient _Client;
 
-    public CommentsEndpointsTests(CustomWebApplicationFactory<AssemblyEntryPoint> ApplicationFactory)
+    public CommentsEndpointsTests(CustomWebApplicationFactory<APIEntryPoint> ApplicationFactory)
     {
         _Client = ApplicationFactory.CreateClient();
     }

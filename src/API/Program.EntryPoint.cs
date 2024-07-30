@@ -1,3 +1,3 @@
 ﻿namespace JsonPlaceholderClient.API;
 
-public class AssemblyEntryPoint;
+public class APIEntryPoint;
