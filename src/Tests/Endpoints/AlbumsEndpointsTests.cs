@@ -7,10 +7,10 @@ public sealed class AlbumsEndpointsTests : IClassFixture<CustomWebApplicationFac
 {
     private readonly HttpClient _Client;
     private const string SingleItemResponseContent = """
-    [{"id":1,"userId":1,"title":"Fake Album #1"},{"id":2,"userId":1,"title":"Fake Album #2"},{"id":3,"userId":1,"title":"Fake Album #3"},{"id":4,"userId":1,"title":"Fake Album #4"},{"id":5,"userId":1,"title":"Fake Album #5"}]
+    {"id":1,"userId":1,"title":"Fake Album #1"}
     """;
     private const string MultipleItemsResponseContent = """
-    {"id":1,"userId":1,"title":"Fake Album #1"}
+    [{"id":1,"userId":1,"title":"Fake Album #1"},{"id":2,"userId":1,"title":"Fake Album #2"},{"id":3,"userId":1,"title":"Fake Album #3"},{"id":4,"userId":1,"title":"Fake Album #4"},{"id":5,"userId":1,"title":"Fake Album #5"}]
     """;
 
     public AlbumsEndpointsTests(CustomWebApplicationFactory<APIEntryPoint> ApplicationFactory)
@@ -25,7 +25,7 @@ public sealed class AlbumsEndpointsTests : IClassFixture<CustomWebApplicationFac
         var Content = await Response.Content.ReadAsStringAsync();
 
         Assert.Equal(HttpStatusCode.OK, Response.StatusCode);
-        Assert.Equal(SingleItemResponseContent, Content);
+        Assert.Equal(MultipleItemsResponseContent, Content);
     }
 
     [Fact]

@@ -7,10 +7,10 @@ public sealed class CommentsEndpointsTests : IClassFixture<CustomWebApplicationF
 {
     private readonly HttpClient _Client;
     private const string SingleItemResponseContent = """
-    [{"id":1,"postId":1,"name":"Sonoda117","body":"Body from comment #1","email":"sonoda.117@fakemail.com"},{"id":2,"postId":1,"name":"Sonoda117","body":"Body from comment #2","email":"sonoda.117@fakemail.com"},{"id":3,"postId":1,"name":"Sonoda117","body":"Body from comment #3","email":"sonoda.117@fakemail.com"},{"id":4,"postId":1,"name":"Sonoda117","body":"Body from comment #4","email":"sonoda.117@fakemail.com"},{"id":5,"postId":1,"name":"Sonoda117","body":"Body from comment #5","email":"sonoda.117@fakemail.com"}]
+    {"id":1,"postId":1,"name":"Sonoda117","body":"Body from comment #1","email":"sonoda.117@fakemail.com"}
     """;
     private const string MultipleItemsResponseContent = """
-    {"id":1,"postId":1,"name":"Sonoda117","body":"Body from comment #1","email":"sonoda.117@fakemail.com"}
+    [{"id":1,"postId":1,"name":"Sonoda117","body":"Body from comment #1","email":"sonoda.117@fakemail.com"},{"id":2,"postId":1,"name":"Sonoda117","body":"Body from comment #2","email":"sonoda.117@fakemail.com"},{"id":3,"postId":1,"name":"Sonoda117","body":"Body from comment #3","email":"sonoda.117@fakemail.com"},{"id":4,"postId":1,"name":"Sonoda117","body":"Body from comment #4","email":"sonoda.117@fakemail.com"},{"id":5,"postId":1,"name":"Sonoda117","body":"Body from comment #5","email":"sonoda.117@fakemail.com"}]
     """;
 
     public CommentsEndpointsTests(CustomWebApplicationFactory<APIEntryPoint> ApplicationFactory)

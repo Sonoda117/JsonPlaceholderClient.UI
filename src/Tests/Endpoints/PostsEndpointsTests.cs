@@ -7,10 +7,10 @@ public sealed class PostsEndpointsTests : IClassFixture<CustomWebApplicationFact
 {
     private readonly HttpClient _Client;
     private const string SingleItemResponseContent = """
-    [{"id":1,"userId":1,"title":"Post #1","body":"Body from post #1"},{"id":2,"userId":1,"title":"Post #2","body":"Body from post #2"},{"id":3,"userId":1,"title":"Post #3","body":"Body from post #3"},{"id":4,"userId":1,"title":"Post #4","body":"Body from post #4"},{"id":5,"userId":1,"title":"Post #5","body":"Body from post #5"}]
+    {"id":1,"userId":1,"title":"Post #1","body":"Body from post #1"}
     """;
     private const string MultipleItemsResponseContent = """
-    {"id":1,"userId":1,"title":"Post #1","body":"Body from post #1"}
+    [{"id":1,"userId":1,"title":"Post #1","body":"Body from post #1"},{"id":2,"userId":1,"title":"Post #2","body":"Body from post #2"},{"id":3,"userId":1,"title":"Post #3","body":"Body from post #3"},{"id":4,"userId":1,"title":"Post #4","body":"Body from post #4"},{"id":5,"userId":1,"title":"Post #5","body":"Body from post #5"}]
     """;
 
     public PostsEndpointsTests(CustomWebApplicationFactory<APIEntryPoint> ApplicationFactory)

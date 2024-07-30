@@ -7,10 +7,10 @@ public sealed class TodosEndpointsTests : IClassFixture<CustomWebApplicationFact
 {
     private readonly HttpClient _Client;
     private const string SingleItemResponseContent = """
-    [{"id":1,"userId":1,"title":"Todo #1","completed":true},{"id":2,"userId":1,"title":"Todo #2","completed":true},{"id":3,"userId":1,"title":"Todo #3","completed":true},{"id":4,"userId":1,"title":"Todo #4","completed":true},{"id":5,"userId":1,"title":"Todo #5","completed":true}]
+    {"id":1,"userId":1,"title":"Todo #1","completed":true}
     """;
     private const string MultipleItemsResponseContent = """
-    {"id":1,"userId":1,"title":"Todo #1","completed":true}
+    [{"id":1,"userId":1,"title":"Todo #1","completed":true},{"id":2,"userId":1,"title":"Todo #2","completed":true},{"id":3,"userId":1,"title":"Todo #3","completed":true},{"id":4,"userId":1,"title":"Todo #4","completed":true},{"id":5,"userId":1,"title":"Todo #5","completed":true}]
     """;
 
     public TodosEndpointsTests(CustomWebApplicationFactory<APIEntryPoint> ApplicationFactory)
