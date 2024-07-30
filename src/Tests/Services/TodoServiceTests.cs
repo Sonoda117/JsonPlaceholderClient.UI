@@ -14,13 +14,7 @@ public class TodoServiceTests(JsonPlaceholderFixture JsonPlaceholder) : IClassFi
 
         Assert.NotNull(Todos);
         Assert.NotEmpty(Todos);
-        Assert.All(Todos, P =>
-        {
-            Assert.NotNull(P);
-            Assert.True(P.Id > 0);
-            Assert.True(P.UserId > 0);
-            Assert.False(string.IsNullOrEmpty(P.Title));
-        });
+        Assert.All(Todos, AssertOnTodo);
     }
 
     [Theory]
@@ -30,11 +24,7 @@ public class TodoServiceTests(JsonPlaceholderFixture JsonPlaceholder) : IClassFi
     public async Task GetById_WhenIdExists_ReturnsTodo(int Id)
     {
         var Todo = await Service.GetByIdAsync(Id, CancellationToken.None);
-
-        Assert.NotNull(Todo);
-        Assert.True(Todo.Id > 0);
-        Assert.True(Todo.UserId > 0);
-        Assert.False(string.IsNullOrEmpty(Todo.Title));
+        AssertOnTodo(Todo);
     }
 
     [Fact]
@@ -54,13 +44,7 @@ public class TodoServiceTests(JsonPlaceholderFixture JsonPlaceholder) : IClassFi
 
         Assert.NotNull(Todos);
         Assert.NotEmpty(Todos);
-        Assert.All(Todos, T =>
-        {
-            Assert.NotNull(T);
-            Assert.True(T.Id > 0);
-            Assert.True(T.UserId > 0);
-            Assert.False(string.IsNullOrEmpty(T.Title));
-        });
+        Assert.All(Todos, AssertOnTodo);
     }
 
     [Fact]
@@ -70,5 +54,13 @@ public class TodoServiceTests(JsonPlaceholderFixture JsonPlaceholder) : IClassFi
 
         Assert.NotNull(Todos);
         Assert.Empty(Todos);
+    }
+
+    private static void AssertOnTodo(Todo? Todo)
+    {
+        Assert.NotNull(Todo);
+        Assert.True(Todo.Id > 0);
+        Assert.True(Todo.UserId > 0);
+        Assert.False(string.IsNullOrEmpty(Todo.Title));
     }
 }

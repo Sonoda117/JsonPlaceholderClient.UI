@@ -14,15 +14,7 @@ public sealed class CommentServiceTests(JsonPlaceholderFixture JsonPlaceholder) 
 
         Assert.NotNull(Comments);
         Assert.NotEmpty(Comments);
-        Assert.All(Comments, C =>
-        {
-            Assert.NotNull(C);
-            Assert.True(C.Id > 0);
-            Assert.True(C.PostId > 0);
-            Assert.False(string.IsNullOrEmpty(C.Name));
-            Assert.False(string.IsNullOrEmpty(C.Body));
-            Assert.False(string.IsNullOrEmpty(C.Email));
-        });
+        Assert.All(Comments, AssertOnComment);
     }
 
     [Theory]
@@ -32,13 +24,7 @@ public sealed class CommentServiceTests(JsonPlaceholderFixture JsonPlaceholder) 
     public async Task GetById_WhenIdExists_ReturnsComment(int Id)
     {
         var Comment = await Service.GetByIdAsync(Id, CancellationToken.None);
-
-        Assert.NotNull(Comment);
-        Assert.True(Comment.Id > 0);
-        Assert.True(Comment.PostId > 0);
-        Assert.False(string.IsNullOrEmpty(Comment.Name));
-        Assert.False(string.IsNullOrEmpty(Comment.Body));
-        Assert.False(string.IsNullOrEmpty(Comment.Email));
+        AssertOnComment(Comment);
     }
 
     [Fact]
@@ -58,15 +44,7 @@ public sealed class CommentServiceTests(JsonPlaceholderFixture JsonPlaceholder) 
 
         Assert.NotNull(Comments);
         Assert.NotEmpty(Comments);
-        Assert.All(Comments, C =>
-        {
-            Assert.NotNull(C);
-            Assert.True(C.Id > 0);
-            Assert.True(C.PostId > 0);
-            Assert.False(string.IsNullOrEmpty(C.Name));
-            Assert.False(string.IsNullOrEmpty(C.Body));
-            Assert.False(string.IsNullOrEmpty(C.Email));
-        });
+        Assert.All(Comments, AssertOnComment);
     }
 
     [Fact]
@@ -76,5 +54,15 @@ public sealed class CommentServiceTests(JsonPlaceholderFixture JsonPlaceholder) 
 
         Assert.NotNull(Comments);
         Assert.Empty(Comments);
+    }
+
+    private static void AssertOnComment(Comment? Comment)
+    {
+        Assert.NotNull(Comment);
+        Assert.True(Comment.Id > 0);
+        Assert.True(Comment.PostId > 0);
+        Assert.False(string.IsNullOrEmpty(Comment.Name));
+        Assert.False(string.IsNullOrEmpty(Comment.Body));
+        Assert.False(string.IsNullOrEmpty(Comment.Email));
     }
 }

@@ -14,14 +14,7 @@ public sealed class PostServiceTests(JsonPlaceholderFixture JsonPlaceholder) : I
 
         Assert.NotNull(Posts);
         Assert.NotEmpty(Posts);
-        Assert.All(Posts, P =>
-        {
-            Assert.NotNull(P);
-            Assert.True(P.Id > 0);
-            Assert.True(P.UserId > 0);
-            Assert.False(string.IsNullOrEmpty(P.Body));
-            Assert.False(string.IsNullOrEmpty(P.Title));
-        });
+        Assert.All(Posts, AssertOnPost);
     }
 
     [Theory]
@@ -31,12 +24,7 @@ public sealed class PostServiceTests(JsonPlaceholderFixture JsonPlaceholder) : I
     public async Task GetById_WhenIdExists_ReturnsPost(int Id)
     {
         var Post = await Service.GetByIdAsync(Id, CancellationToken.None);
-
-        Assert.NotNull(Post);
-        Assert.True(Post.Id > 0);
-        Assert.True(Post.UserId > 0);
-        Assert.False(string.IsNullOrEmpty(Post.Body));
-        Assert.False(string.IsNullOrEmpty(Post.Title));
+        AssertOnPost(Post);
     }
 
     [Fact]
@@ -56,14 +44,7 @@ public sealed class PostServiceTests(JsonPlaceholderFixture JsonPlaceholder) : I
 
         Assert.NotNull(Posts);
         Assert.NotEmpty(Posts);
-        Assert.All(Posts, P =>
-        {
-            Assert.NotNull(P);
-            Assert.True(P.Id > 0);
-            Assert.True(P.UserId > 0);
-            Assert.False(string.IsNullOrEmpty(P.Body));
-            Assert.False(string.IsNullOrEmpty(P.Title));
-        });
+        Assert.All(Posts, AssertOnPost);
     }
 
     [Fact]
@@ -73,5 +54,14 @@ public sealed class PostServiceTests(JsonPlaceholderFixture JsonPlaceholder) : I
 
         Assert.NotNull(Posts);
         Assert.Empty(Posts);
+    }
+
+    private static void AssertOnPost(Post? Post)
+    {
+        Assert.NotNull(Post);
+        Assert.True(Post.Id > 0);
+        Assert.True(Post.UserId > 0);
+        Assert.False(string.IsNullOrEmpty(Post.Body));
+        Assert.False(string.IsNullOrEmpty(Post.Title));
     }
 }

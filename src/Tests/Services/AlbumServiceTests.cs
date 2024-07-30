@@ -14,13 +14,7 @@ public sealed class AlbumServiceTests(JsonPlaceholderFixture JsonPlaceholder) : 
 
         Assert.NotNull(Albums);
         Assert.NotEmpty(Albums);
-        Assert.All(Albums, A =>
-        {
-            Assert.NotNull(A);
-            Assert.True(A.Id > 0);
-            Assert.True(A.UserId > 0);
-            Assert.False(string.IsNullOrEmpty(A.Title));
-        });
+        Assert.All(Albums, AssertOnAlbum);
     }
 
     [Theory]
@@ -30,11 +24,7 @@ public sealed class AlbumServiceTests(JsonPlaceholderFixture JsonPlaceholder) : 
     public async Task GetById_WhenIdExists_ReturnsAlbum(int Id)
     {
         var Album = await Service.GetByIdAsync(Id, CancellationToken.None);
-
-        Assert.NotNull(Album);
-        Assert.True(Album.Id > 0);
-        Assert.True(Album.UserId > 0);
-        Assert.False(string.IsNullOrEmpty(Album.Title));
+        AssertOnAlbum(Album);
     }
 
     [Fact]
@@ -54,13 +44,7 @@ public sealed class AlbumServiceTests(JsonPlaceholderFixture JsonPlaceholder) : 
 
         Assert.NotNull(Albums);
         Assert.NotEmpty(Albums);
-        Assert.All(Albums, A =>
-        {
-            Assert.NotNull(A);
-            Assert.True(A.Id > 0);
-            Assert.True(A.UserId > 0);
-            Assert.False(string.IsNullOrEmpty(A.Title));
-        });
+        Assert.All(Albums, AssertOnAlbum);
     }
 
     [Fact]
@@ -70,5 +54,13 @@ public sealed class AlbumServiceTests(JsonPlaceholderFixture JsonPlaceholder) : 
 
         Assert.NotNull(Albums);
         Assert.Empty(Albums);
+    }
+
+    private static void AssertOnAlbum(Album? Album)
+    {
+        Assert.NotNull(Album);
+        Assert.True(Album.Id > 0);
+        Assert.True(Album.UserId > 0);
+        Assert.False(string.IsNullOrEmpty(Album.Title));
     }
 }

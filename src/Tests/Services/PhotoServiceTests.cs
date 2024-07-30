@@ -14,15 +14,7 @@ public sealed class PhotoServiceTests(JsonPlaceholderFixture JsonPlaceholder) : 
 
         Assert.NotNull(Photos);
         Assert.NotEmpty(Photos);
-        Assert.All(Photos, P =>
-        {
-            Assert.NotNull(P);
-            Assert.True(P.Id > 0);
-            Assert.True(P.AlbumId > 0);
-            Assert.False(string.IsNullOrEmpty(P.Url));
-            Assert.False(string.IsNullOrEmpty(P.Title));
-            Assert.False(string.IsNullOrEmpty(P.ThumbnailUrl));
-        });
+        Assert.All(Photos, AssertOnPhoto);
     }
 
     [Theory]
@@ -32,13 +24,7 @@ public sealed class PhotoServiceTests(JsonPlaceholderFixture JsonPlaceholder) : 
     public async Task GetById_WhenIdExists_ReturnsPhoto(int Id)
     {
         var Photo = await Service.GetByIdAsync(Id, CancellationToken.None);
-
-        Assert.NotNull(Photo);
-        Assert.True(Photo.Id > 0);
-        Assert.True(Photo.AlbumId > 0);
-        Assert.False(string.IsNullOrEmpty(Photo.Url));
-        Assert.False(string.IsNullOrEmpty(Photo.Title));
-        Assert.False(string.IsNullOrEmpty(Photo.ThumbnailUrl));
+        AssertOnPhoto(Photo);
     }
 
     [Fact]
@@ -58,15 +44,7 @@ public sealed class PhotoServiceTests(JsonPlaceholderFixture JsonPlaceholder) : 
 
         Assert.NotNull(Photos);
         Assert.NotEmpty(Photos);
-        Assert.All(Photos, P =>
-        {
-            Assert.NotNull(P);
-            Assert.True(P.Id > 0);
-            Assert.True(P.AlbumId > 0);
-            Assert.False(string.IsNullOrEmpty(P.Url));
-            Assert.False(string.IsNullOrEmpty(P.Title));
-            Assert.False(string.IsNullOrEmpty(P.ThumbnailUrl));
-        });
+        Assert.All(Photos, AssertOnPhoto);
     }
 
     [Fact]
@@ -76,5 +54,15 @@ public sealed class PhotoServiceTests(JsonPlaceholderFixture JsonPlaceholder) : 
 
         Assert.NotNull(Photos);
         Assert.Empty(Photos);
+    }
+
+    private static void AssertOnPhoto(Photo? Photo)
+    {
+        Assert.NotNull(Photo);
+        Assert.True(Photo.Id > 0);
+        Assert.True(Photo.AlbumId > 0);
+        Assert.False(string.IsNullOrEmpty(Photo.Url));
+        Assert.False(string.IsNullOrEmpty(Photo.Title));
+        Assert.False(string.IsNullOrEmpty(Photo.ThumbnailUrl));
     }
 }
