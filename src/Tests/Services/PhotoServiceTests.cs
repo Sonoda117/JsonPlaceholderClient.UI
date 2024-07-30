@@ -1,6 +1,4 @@
-﻿using JsonPlaceholderClient.Lib.Photos;
-
-namespace JsonPlaceholderClient.Tests.Services;
+﻿namespace JsonPlaceholderClient.Tests.Services;
 
 public sealed class PhotoServiceTests(JsonPlaceholderFixture JsonPlaceholder) : IClassFixture<JsonPlaceholderFixture>
 {

@@ -1,6 +1,4 @@
-﻿using JsonPlaceholderClient.Lib.Albums;
-
-namespace JsonPlaceholderClient.Tests.Services;
+﻿namespace JsonPlaceholderClient.Tests.Services;
 
 public sealed class AlbumServiceTests(JsonPlaceholderFixture JsonPlaceholder) : IClassFixture<JsonPlaceholderFixture>
 {

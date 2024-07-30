@@ -1,6 +1,4 @@
-﻿using JsonPlaceholderClient.Lib.Todos;
-
-namespace JsonPlaceholderClient.Tests.Services;
+﻿namespace JsonPlaceholderClient.Tests.Services;
 
 public class TodoServiceTests(JsonPlaceholderFixture JsonPlaceholder) : IClassFixture<JsonPlaceholderFixture>
 {

@@ -1,6 +1,4 @@
-﻿using JsonPlaceholderClient.Lib.Posts;
-
-namespace JsonPlaceholderClient.Tests.Services;
+﻿namespace JsonPlaceholderClient.Tests.Services;
 
 public sealed class PostServiceTests(JsonPlaceholderFixture JsonPlaceholder) : IClassFixture<JsonPlaceholderFixture>
 {

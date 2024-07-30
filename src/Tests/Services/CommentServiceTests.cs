@@ -1,6 +1,4 @@
-﻿using JsonPlaceholderClient.Lib.Comments;
-
-namespace JsonPlaceholderClient.Tests.Services;
+﻿namespace JsonPlaceholderClient.Tests.Services;
 
 public sealed class CommentServiceTests(JsonPlaceholderFixture JsonPlaceholder) : IClassFixture<JsonPlaceholderFixture>
 {
