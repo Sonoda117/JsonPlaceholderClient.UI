@@ -1,8 +1,6 @@
 ﻿<aside class="sidebar">
-    <div class="top-row ps-3 navbar navbar-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="">JsonPlaceholderClient.UI</a>
-        </div>
+    <div class="top-row navbar navbar-dark">
+        <i id="nav-menu-collapse" class="bi bi-text-indent-right"></i>
     </div>
 
     <input type="checkbox" title="Navigation menu" class="navbar-toggler" />
@@ -11,19 +9,43 @@
         <nav class="flex-column">
             <div class="nav-item">
                 <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                    <span class="bi bi-house-door-fill" aria-hidden="true"></span> Home
+                    <span class="bi bi-house-door" aria-hidden="true"></span> @("Home")
                 </NavLink>
             </div>
 
             <div class="nav-item">
-                <NavLink class="nav-link" href="counter">
-                    <span class="bi bi-plus-square-fill" aria-hidden="true"></span> Counter
+                <NavLink class="nav-link" href="users">
+                    <span class="bi bi-people" aria-hidden="true"></span> @("Users")
                 </NavLink>
             </div>
 
             <div class="nav-item">
-                <NavLink class="nav-link" href="weather">
-                    <span class="bi bi-list-nested" aria-hidden="true"></span> Weather
+                <NavLink class="nav-link" href="todos">
+                    <span class="bi bi-check2-square" aria-hidden="true"></span> @("Todos")
+                </NavLink>
+            </div>
+
+            <div class="nav-item">
+                <NavLink class="nav-link" href="posts">
+                    <span class="bi bi-stickies" aria-hidden="true"></span> @("Posts")
+                </NavLink>
+            </div>
+
+            <div class="nav-item">
+                <NavLink class="nav-link" href="albums">
+                    <span class="bi bi-journal-richtext" aria-hidden="true"></span> @("Albums")
+                </NavLink>
+            </div>
+
+            <div class="nav-item">
+                <NavLink class="nav-link" href="photos">
+                    <span class="bi bi-images" aria-hidden="true"></span> @("Photos")
+                </NavLink>
+            </div>
+
+            <div class="nav-item">
+                <NavLink class="nav-link" href="comments">
+                    <span class="bi bi-chat-left-text" aria-hidden="true"></span> @("Comments")
                 </NavLink>
             </div>
         </nav>
