@@ -1,11 +1,10 @@
 .sidebar {
     background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+    transition: width .275s ease-in-out;
 }
 
 #nav-menu-collapse {
-    color: white;
-    margin: auto;
-    font-size: 2.2rem;
+    display: none;
 }
 
 .navbar-toggler {
@@ -16,7 +15,7 @@
     color: white;
     position: absolute;
     top: 0.5rem;
-    right: 1rem;
+    right: 0.5rem;
     border: 1px solid rgba(255, 255, 255, 0.1);
     background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") no-repeat center/1.75rem rgba(255, 255, 255, 0.1);
 }
@@ -32,20 +31,20 @@
 
 .navbar-brand {
     font-size: 1.1rem;
+    margin-left: 0.75rem;
 }
 
 .bi {
     display: inline-block;
     position: relative;
     font-size: 1.3rem;
-    margin-left: 1.2rem;
-    margin-right: 0.75rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
     background-size: cover;
 }
 
 .nav-item {
-    font-size: 0.9rem;
-    padding-bottom: 0.5rem;
+    font-size: 1.05rem;
 }
 
     .nav-item:first-of-type {
@@ -61,7 +60,7 @@
         background: none;
         border: none;
         border-radius: 4px;
-        height: 3rem;
+        height: 3.25rem;
         display: flex;
         align-items: center;
         line-height: 3rem;
@@ -88,10 +87,26 @@
 
 @media (min-width: 641px) {
     .sidebar {
-        width: 250px;
+        width: 200px;
         height: 100vh;
         position: sticky;
         top: 0;
+    }
+
+    .sidebar-collapse {
+        width: 3.35rem;
+    }
+
+    #nav-menu-collapse {
+        color: white;
+        margin: auto;
+        cursor: pointer;
+        font-size: 2.2rem;
+        display: inline;
+    }
+
+    .navbar-brand {
+        display: none;
     }
 
     .navbar-toggler {
@@ -104,6 +119,6 @@
 
         /* Allow sidebar to scroll for tall menus */
         height: calc(100vh - 3.5rem);
-        overflow-y: auto;
+        overflow: hidden;
     }
 }

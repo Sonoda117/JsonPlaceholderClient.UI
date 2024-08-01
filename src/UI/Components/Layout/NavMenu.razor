@@ -1,53 +1,64 @@
-﻿<aside class="sidebar">
+﻿@inject IJSRuntime JS
+
+<aside id="nav-menu" class="sidebar">
     <div class="top-row navbar navbar-dark">
         <i id="nav-menu-collapse" class="bi bi-text-indent-right"></i>
+        <a class="navbar-brand" href="">JsonPlaceholderClient</a>
     </div>
 
     <input type="checkbox" title="Navigation menu" class="navbar-toggler" />
 
     <div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
         <nav class="flex-column">
-            <div class="nav-item">
+            <div class="nav-item" title="Home">
                 <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                    <span class="bi bi-house-door" aria-hidden="true"></span> @("Home")
+                    <i class="bi bi-house-door" aria-hidden="true"></i> @("Home")
                 </NavLink>
             </div>
 
-            <div class="nav-item">
+            <div class="nav-item" title="Users">
                 <NavLink class="nav-link" href="users">
-                    <span class="bi bi-people" aria-hidden="true"></span> @("Users")
+                    <i class="bi bi-people" aria-hidden="true"></i> @("Users")
                 </NavLink>
             </div>
 
-            <div class="nav-item">
+            <div class="nav-item" title="Todos">
                 <NavLink class="nav-link" href="todos">
-                    <span class="bi bi-check2-square" aria-hidden="true"></span> @("Todos")
+                    <i class="bi bi-check2-square" aria-hidden="true"></i> @("Todos")
                 </NavLink>
             </div>
 
-            <div class="nav-item">
+            <div class="nav-item" title="Posts">
                 <NavLink class="nav-link" href="posts">
-                    <span class="bi bi-stickies" aria-hidden="true"></span> @("Posts")
+                    <i class="bi bi-stickies" aria-hidden="true"></i> @("Posts")
                 </NavLink>
             </div>
 
-            <div class="nav-item">
+            <div class="nav-item" title="Albums">
                 <NavLink class="nav-link" href="albums">
-                    <span class="bi bi-journal-richtext" aria-hidden="true"></span> @("Albums")
+                    <i class="bi bi-journal-richtext" aria-hidden="true"></i> @("Albums")
                 </NavLink>
             </div>
 
-            <div class="nav-item">
+            <div class="nav-item" title="Photos">
                 <NavLink class="nav-link" href="photos">
-                    <span class="bi bi-images" aria-hidden="true"></span> @("Photos")
+                    <i class="bi bi-images" aria-hidden="true"></i> @("Photos")
                 </NavLink>
             </div>
 
-            <div class="nav-item">
+            <div class="nav-item" title="Comments">
                 <NavLink class="nav-link" href="comments">
-                    <span class="bi bi-chat-left-text" aria-hidden="true"></span> @("Comments")
+                    <i class="bi bi-chat-left-text" aria-hidden="true"></i> @("Comments")
                 </NavLink>
             </div>
         </nav>
     </div>
 </aside>
+
+@code{
+    protected override async Task OnAfterRenderAsync(bool FirstRender)
+    {
+        if (FirstRender)
+            await JS.InvokeVoidAsync("navMenu.enableCollapse");
+    }
+}
