@@ -12,7 +12,7 @@ public partial class Users : IDisposable
 
     protected override async Task OnInitializedAsync()
     {
-        Client = HttpClientFactory.CreateClient("");
+        Client = HttpClientFactory.CreateClient("JsonPlaceholder.API");
         UsersCollection = await Client.GetFromJsonAsync<User[]>("api/v1/users", CancellationToken);
     }
     public void Dispose()

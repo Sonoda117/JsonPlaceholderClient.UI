@@ -1,6 +1,12 @@
 using JsonPlaceholderClient.UI.Components;
 
 var Builder = WebApplication.CreateBuilder(args);
+var APIBaseAddress = Builder.Configuration["JsonPlaceholder:Address"] ?? "http://localhost:7012/";
+
+Builder.Services.AddHttpClient("JsonPlaceholder.API", Client =>
+{
+    Client.BaseAddress = new Uri(APIBaseAddress);
+});
 
 Builder.Services
     .AddRazorComponents()
