@@ -1,0 +1,74 @@
+﻿@page "/users/{UserId:int}"
+
+<PageTitle>@("JsonPlaceholder UI | Users")</PageTitle>
+
+<div class="container-fluid">
+    <div class="row justify-content-around">
+        @if (User is not null)
+        {
+            <div class="col-xl-6">
+                <div class="card">
+                    <h1 class="card-header text-muted fw-bold fs-3">
+                        @($"@{User.Username}")
+                    </h1>
+                    <div class="card-body">
+                        <div class="row g-3">
+                            <div class="col-lg-4 col-md-5">
+                                <img src="user.png" class="img-fluid mx-auto d-block" alt="...">
+                            </div>
+                            <div class="col">
+                                <h2 class="card-title fw-bold fs-4 mt-3">@User.Name</h2>
+                                <div class="mb-1 mt-3">
+                                    <i class="bi bi-envelope me-2"></i> @User.Email
+                                </div>
+                                <div class="mb-1">
+                                    <i class="bi bi-telephone me-2"></i> @User.Phone
+                                </div>
+                                <div class="mb-1">
+                                    <i class="bi bi-house-door me-2"></i> @($"{User.Address?.Street} {User.Address?.Suite}, {User.Address?.City}")
+                                </div>
+                                <div class="mb-1">
+                                    <i class="bi bi-buildings me-2"></i> @User.Company?.Name
+                                </div>
+                                <div class="mb-1">
+                                    <i class="bi bi-globe me-2"></i> <a class="text-decoration-none" href="@($"http://{User.Website}")" target="_blank">@User.Website</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        @if (Todos is not null)
+        {
+            <div class="col-xl-6">
+                <div class="card">
+                    <h3 class="card-header text-muted fw-bold fs-3">ToDo</h3>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                @foreach (var Todo in Todos)
+                                {
+                                    <div class="form-check">
+                                        @if (Todo.Completed)
+                                        {
+                                            <input class="form-check-input" type="checkbox" value="" id="@($"todo-{Todo.Id}")" checked>
+                                        }
+                                        else
+                                        {
+                                            <input class="form-check-input" type="checkbox" value="" id="@($"todo-{Todo.Id}")">
+                                        }
+                                        <label class="form-check-label" for="@($"todo-{Todo.Id}")">
+                                            @Todo.Title
+                                        </label>
+                                    </div>
+                                    <hr class="mt-0 mb-2" />
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
